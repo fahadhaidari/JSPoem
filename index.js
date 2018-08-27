@@ -35,14 +35,18 @@ window.onload = function() {
   }
 
   function Quad(x, y, width, height) {
-    var xVel = Math.random() * 10;
-    var yVel = Math.random() * 10;
+    const velVector = {
+      x: Math.random() * 10,
+      y: Math.random() * 10
+    };
+    const targetPoint = {
+      x: 600,
+      y: 400
+    };
+    const speed = .1;
     var color = null;
     var colorIndex = 0;
     var angle = Math.random() * 20;
-    const speed = .1;
-    const xTp = 600;
-    const yTp = 450;
 
     (function() {
       colorIndex = Math.round(Math.random() * colors.length);
@@ -52,15 +56,15 @@ window.onload = function() {
     })()
 
     this.draw = function() {
-      const dx = xTp - x;
-      const dy = yTp - y;
+      const dx = targetPoint.x - x;
+      const dy = targetPoint.y - y;
       const alphaFactor = (canvas.width - x) * 0.002;
 
       angle = Math.atan2(dy, dx);
-      xVel += Math.cos(angle);
-      yVel += Math.sin(angle);
-      x += xVel * speed;
-      y += yVel * speed;
+      velVector.x += Math.cos(angle);
+      velVector.y += Math.sin(angle);
+      x += velVector.x * speed;
+      y += velVector.y * speed;
 
       context.fillStyle =  colors[colorIndex];
       context.fillRect(x, y, width * alphaFactor, height * alphaFactor);
