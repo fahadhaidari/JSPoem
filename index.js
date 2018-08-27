@@ -48,7 +48,7 @@ window.onload = function() {
     const xTp = 600;
     const yTp = 450;
 
-    (function(x, y, width, height) {
+    (function() {
       colorIndex = Math.round(Math.random() * colors.length);
       context.fillStyle = colors[colorIndex];
       context.fillRect(x, y, width, height);
