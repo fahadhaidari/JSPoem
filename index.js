@@ -35,10 +35,6 @@ window.onload = function() {
   }
 
   function Quad(x, y, width, height) {
-    var x = x;
-    var y = y;
-    var width = width;
-    var height = height;
     var xVel = Math.random() * 10;
     var yVel = Math.random() * 10;
     var color = null;
